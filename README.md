@@ -40,7 +40,7 @@ The analysis focuses on:
 
 3. **Regional Analysis**
    - Created a Sub_Region column for detailed markets (e.g., West (USA), Southeast Asia, Oceania).
-   - Created a rolled-up Region column for high-level business analysis:
+   - Created a rolled-up Region column:
       - North America = USA + Canada
       - LATAM = Caribbean
       - APAC = Southeast Asia + North Asia + Central Asia + Oceania
