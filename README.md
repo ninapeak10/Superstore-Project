@@ -5,9 +5,9 @@ This project analyzes a large retail dataset (~51,000 rows) from a global supers
 
 The analysis focuses on:
 
-- Regional profitability
+- Data cleaning and hierarchical region mapping 
+- Regional and sub-region profitability
 - Category and discount sensitivity
-- Revenue vs. profit mismatches
 - Quantifying discount impact using linear regression
 
 ---
@@ -39,11 +39,13 @@ The analysis focuses on:
      - Furniture, Technology, and Office Supplies all show **steep margin decline at high discounts**
 
 3. **Regional Analysis**
-   - Aggregated sales and profit by `Region`
-   - Identified **Southeast Asia** as the lowest-performing region:
-     - Sales: ~884k  
-     - Profit Margin: 2%
-   - Root cause analysis revealed **average discount of 27%**, the highest among all regions, as the primary driver
+   - Created a Sub_Region column for detailed markets (e.g., West (USA), Southeast Asia, Oceania).
+   - Created a rolled-up Region column:
+      - North America = USA + Canada
+      - LATAM = Caribbean
+      - APAC = Southeast Asia + North Asia + Central Asia + Oceania
+      - EMEA = EMEA + Africa
+   - Aggregated Sales, Profit, and Profit_Margin by Region and Sub_Region.
 
 4. **Regression Analysis**
    - Built a **linear regression model** predicting `Profit_Margin` from `Discount`
@@ -62,7 +64,7 @@ The analysis focuses on:
 ## Key Insights
 
 - **Discounting heavily affects profitability:** high discounts (30%+) can turn profitable products into losses
-- **Southeast Asia is the most at-risk region** due to aggressive discounting
+- **APAC** is the most at-risk region due to aggressive discounting in Southeast Asia.
 - **Furniture is the most discount-sensitive category**
 - **Linear regression quantifies the effect:** 10% higher discount → ~18% lower profit margin
 
@@ -70,7 +72,7 @@ The analysis focuses on:
 
 ## Next Steps / Recommendations
 
-- Limit discounts >30% for high-risk categories like Furniture
-- Investigate regional pricing strategy for Southeast Asia
-- Explore additional factors affecting margins (shipping costs, product mix, customer segments)
-- Extend analysis with predictive models for category-level profit optimization
+- Limit discounts >30% for high-risk categories like Furniture.
+- Investigate regional pricing strategy for APAC and EMEA.
+- Explore additional factors affecting margins. (shipping costs, product mix, customer segments)
+- Extend analysis with predictive models for category-level profit optimization.
